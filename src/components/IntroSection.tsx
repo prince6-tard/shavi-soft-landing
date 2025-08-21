@@ -52,13 +52,15 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
   return (
     <motion.div
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      initial={{ background: 'linear-gradient(135deg, #9ca3af, #6b7280)' }}
+      initial={{ background: 'linear-gradient(135deg, #374151, #1f2937)' }}
       animate={{
         background: stage >= 2 
-          ? 'linear-gradient(135deg, hsl(var(--romantic-blush)), hsl(var(--romantic-lavender)))'
-          : 'linear-gradient(135deg, #9ca3af, #6b7280)'
+          ? 'linear-gradient(135deg, hsl(var(--romantic-blush)), hsl(var(--romantic-lavender)), hsl(var(--romantic-cream)))'
+          : stage >= 1
+          ? 'linear-gradient(135deg, #6b7280, #9ca3af)'
+          : 'linear-gradient(135deg, #374151, #1f2937)'
       }}
-      transition={{ duration: 2 }}
+      transition={{ duration: 2.5 }}
     >
       {particles}
       
@@ -70,19 +72,21 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
           className="mb-8"
         >
           <motion.figure
-            className="w-20 h-20 mx-auto mb-6 rounded-full bg-romantic-gray/20 flex items-center justify-center"
+            className="w-24 h-16 mx-auto mb-6 rounded-lg bg-romantic-gray/20 flex items-center justify-center border-2 border-dashed"
             animate={{
-              scale: stage >= 1 ? [1, 1.2, 1] : 1,
-              background: stage >= 2 ? 'hsl(var(--romantic-rose) / 0.3)' : 'hsl(var(--romantic-gray) / 0.2)'
+              scale: stage >= 1 ? [1, 1.1, 1] : 1,
+              background: stage >= 2 ? 'hsl(var(--romantic-rose) / 0.3)' : 'hsl(var(--romantic-gray) / 0.2)',
+              borderColor: stage >= 2 ? 'hsl(var(--romantic-rose))' : 'hsl(var(--romantic-gray))'
             }}
             transition={{ duration: 1.5 }}
           >
-            <div className="w-8 h-8 rounded-full bg-current opacity-60" />
+            {stage === 0 && <span className="text-2xl opacity-60">🔌</span>}
+            {stage >= 1 && <span className="text-2xl">✨</span>}
           </motion.figure>
         </motion.div>
 
         <motion.p
-          className="text-2xl font-body mb-8"
+          className="text-2xl font-body mb-8 max-w-2xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ 
             opacity: 1,
@@ -90,9 +94,9 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
           }}
           transition={{ delay: 1, duration: 1 }}
         >
-          {stage === 0 && "Once, it was only me..."}
-          {stage === 1 && "Then I met you, Shavi."}
-          {stage >= 2 && "And everything changed."}
+          {stage === 0 && "In the dull metro train, I searched desperately for a charger..."}
+          {stage === 1 && "Then she appeared — Shavi, like magic itself."}
+          {stage >= 2 && "Then I met Shavi — and everything changed."}
         </motion.p>
 
         {stage >= 1 && (
@@ -129,7 +133,7 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
               onClick={onComplete}
               className="bg-gradient-romantic hover:scale-105 transition-transform duration-300 shadow-romantic px-8 py-3 text-lg font-medium animate-gentle-bounce"
             >
-              Get Started
+              Enter Shavi's World
             </Button>
           </motion.div>
         )}
