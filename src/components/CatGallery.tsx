@@ -4,27 +4,28 @@ import cat1 from '@/assets/cat-1.jpg';
 import cat2 from '@/assets/cat-2.jpg';
 import cat3 from '@/assets/cat-3.jpg';
 
+
 export const CatGallery = () => {
   const cats = [
     {
       image: cat1,
-      caption: "Certified meow-pology officer.",
-      name: "Chief Whiskers"
+      caption: "I love you mom and i love dad too dont make me choose 1",
+      name: "Leader"
     },
     {
       image: cat2,
-      caption: "Will purr for forgiveness.",
-      name: "Detective Mittens"
+      caption: "Shavi he misses u  you know we both are baddie but we dont let down real lovers",
+      name: "Baddie"
     },
     {
       image: cat3,
-      caption: "Press paw to accept hug.",
-      name: "Inspector Fluff"
+      caption: "Mommy i know u must be mad He just love u so much so much",
+      name: "Adopted"
     }
   ];
 
   return (
-    <section className="py-20 px-6 bg-gradient-soft">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-gradient-soft">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -32,15 +33,15 @@ export const CatGallery = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-8 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-4 sm:mb-6 md:mb-8 text-foreground">
             The Forgiveness Committee
           </h2>
-          <p className="text-xl font-body text-center mb-16 text-muted-foreground">
+          <p className="text-lg sm:text-xl font-body text-center mb-8 sm:mb-12 md:mb-16 text-muted-foreground">
             These experts in unconditional love are here to help our case.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {cats.map((cat, index) => (
             <motion.div
               key={index}

@@ -9,7 +9,7 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Romantic color palette */
-    --background: 355 25% 97%;
+    --background: 355 25% 90%;
     --foreground: 340 15% 15%;
 
     --card: 355 35% 96%;
@@ -124,6 +124,28 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden antialiased;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+
+  html, body, #root {
+    height: 100%;
+    font-family: "Special Gothic Expanded One", sans-serif;
+  }
+
+  img, video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* Respect mobile safe areas (notches, home indicator) */
+  @supports (padding: max(0px)) {
+    body {
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
   }
 }

@@ -31,7 +31,7 @@ export const PromiseSection = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-background">
+    <section className="py-12 sm:py-16 md:py-20 px-4 sm:px-6 bg-background">
       <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -39,10 +39,10 @@ export const PromiseSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-center mb-12 text-foreground">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-center mb-6 sm:mb-8 md:mb-12 text-foreground">
             My Promise & Timeline
           </h2>
-          <p className="text-xl font-body text-center mb-16 text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl font-body text-center mb-8 sm:mb-12 md:mb-16 text-muted-foreground max-w-2xl mx-auto">
             These aren't just words—they're commitments with deadlines and accountability.
           </p>
         </motion.div>
