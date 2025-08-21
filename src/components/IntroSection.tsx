@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
+import metroImage from '@/assets/metro-interior.png';
 
 interface IntroSectionProps {
   onComplete: () => void;
@@ -11,10 +12,10 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
-    const timer1 = setTimeout(() => setStage(1), 2000);
-    const timer2 = setTimeout(() => setStage(2), 4000);
-    const timer3 = setTimeout(() => setStage(3), 6000);
-    const timer4 = setTimeout(() => setShowButton(true), 7000);
+    const timer1 = setTimeout(() => setStage(1), 4000);
+    const timer2 = setTimeout(() => setStage(2), 8000);
+    const timer3 = setTimeout(() => setStage(3), 12000);
+    const timer4 = setTimeout(() => setShowButton(true), 14000);
 
     return () => {
       clearTimeout(timer1);
@@ -68,21 +69,23 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 1 }}
+          transition={{ delay: 0.5, duration: 1.5 }}
           className="mb-8"
         >
-          <motion.figure
-            className="w-24 h-16 mx-auto mb-6 rounded-lg bg-romantic-gray/20 flex items-center justify-center border-2 border-dashed"
+          <motion.div
+            className="w-80 h-48 mx-auto mb-6 rounded-lg overflow-hidden bg-romantic-gray/10 flex items-center justify-center"
             animate={{
-              scale: stage >= 1 ? [1, 1.1, 1] : 1,
-              background: stage >= 2 ? 'hsl(var(--romantic-rose) / 0.3)' : 'hsl(var(--romantic-gray) / 0.2)',
-              borderColor: stage >= 2 ? 'hsl(var(--romantic-rose))' : 'hsl(var(--romantic-gray))'
+              scale: stage >= 1 ? [1, 1.05, 1] : 1,
+              filter: stage >= 2 ? 'grayscale(0%) saturate(120%)' : 'grayscale(100%) saturate(50%)'
             }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 2 }}
           >
-            {stage === 0 && <span className="text-2xl opacity-60">🔌</span>}
-            {stage >= 1 && <span className="text-2xl">✨</span>}
-          </motion.figure>
+            <img 
+              src={metroImage} 
+              alt="Metro train interior" 
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
         </motion.div>
 
         <motion.p
