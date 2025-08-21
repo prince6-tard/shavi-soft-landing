@@ -8,35 +8,59 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Romantic color palette */
+    --background: 355 25% 97%;
+    --foreground: 340 15% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 355 35% 96%;
+    --card-foreground: 340 15% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 355 35% 96%;
+    --popover-foreground: 340 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Soft blush primary */
+    --primary: 340 60% 75%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Cream secondary */
+    --secondary: 45 25% 92%;
+    --secondary-foreground: 340 15% 15%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted lavender */
+    --muted: 280 15% 88%;
+    --muted-foreground: 340 10% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Rose accent */
+    --accent: 350 40% 85%;
+    --accent-foreground: 340 15% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 340 20% 88%;
+    --input: 340 20% 88%;
+    --ring: 340 60% 75%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
+    
+    /* Custom romantic colors */
+    --romantic-blush: 340 60% 75%;
+    --romantic-cream: 45 25% 92%;
+    --romantic-lavender: 280 35% 80%;
+    --romantic-rose: 350 50% 70%;
+    --romantic-gray: 0 0% 50%;
+    
+    /* Gradients */
+    --gradient-romantic: linear-gradient(135deg, hsl(var(--romantic-blush)), hsl(var(--romantic-lavender)));
+    --gradient-soft: linear-gradient(180deg, hsl(var(--background)), hsl(var(--romantic-cream)));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--romantic-blush) / 0.15);
+    --shadow-romantic: 0 8px 30px -8px hsl(var(--romantic-rose) / 0.2);
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
 
     --sidebar-background: 0 0% 98%;
 

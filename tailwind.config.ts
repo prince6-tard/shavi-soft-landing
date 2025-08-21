@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				heading: 'var(--font-heading)',
+				body: 'var(--font-body)',
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -52,6 +56,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				romantic: {
+					blush: 'hsl(var(--romantic-blush))',
+					cream: 'hsl(var(--romantic-cream))',
+					lavender: 'hsl(var(--romantic-lavender))',
+					rose: 'hsl(var(--romantic-rose))',
+					gray: 'hsl(var(--romantic-gray))',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -67,6 +78,14 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			backgroundImage: {
+				'gradient-romantic': 'var(--gradient-romantic)',
+				'gradient-soft': 'var(--gradient-soft)',
+			},
+			boxShadow: {
+				'soft': 'var(--shadow-soft)',
+				'romantic': 'var(--shadow-romantic)',
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +103,32 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0', transform: 'translateY(20px)' },
+					'100%': { opacity: '1', transform: 'translateY(0)' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'heartbeat': {
+					'0%, 100%': { transform: 'scale(1)' },
+					'50%': { transform: 'scale(1.05)' }
+				},
+				'gentle-bounce': {
+					'0%, 20%, 50%, 80%, 100%': { transform: 'translateY(0)' },
+					'40%': { transform: 'translateY(-8px)' },
+					'60%': { transform: 'translateY(-4px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.8s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'heartbeat': 'heartbeat 2s ease-in-out infinite',
+				'gentle-bounce': 'gentle-bounce 2s infinite'
 			}
 		}
 	},
