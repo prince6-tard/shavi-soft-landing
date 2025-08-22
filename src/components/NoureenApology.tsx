@@ -5,6 +5,8 @@ import { Volume2, VolumeX } from 'lucide-react';
 import noureen from '@/assets/noureen.mp4'
 import allahImage from '@/assets/ChatGPT Image Aug 21, 2025, 08_52_03 PM.png';
 import ganeshImage from '@/assets/ChatGPT Image Aug 21, 2025, 08_56_48 PM.png';
+import shavi1 from '@/assets/shavi1.mp3'
+import fornoureen from '@/assets/fornoureen.m4a'
 
 export const NoureenApology = () => {
   const apologyVideoRef = useRef<HTMLVideoElement | null>(null);
@@ -126,7 +128,9 @@ export const NoureenApology = () => {
             <p className="text-ink font-inter text-lg font-medium italic">
               Noureen, I may not deserve your forgiveness yet, but I wanted to acknowledge my mistake and thank you for being the kind of friend Shavi deserves.
             </p>
+              <p>please listen calmly</p>
           </div>
+          <audio src={fornoureen} controls className="w-full mt-6"></audio>
               
             </CardContent>
           </Card>
@@ -201,6 +205,12 @@ export const NoureenApology = () => {
                 "I may not deserve forgiveness yet, but thank you for being 
                 the kind of friend Shavi deserves."
               </p>
+              <p>She sings really really well 
+                noureen i lover her so much please bring her to me 
+                her voice is majestic listen to the song how can i ever get over her
+              </p>
+              <audio src={shavi1} controls className="w-full mt-6"></audio>
+                  <p className="text-lg md:text-xl font-body italic text-foreground">Noureen im sorry yr mera birthday h 5 sep ko it will be the first all of our plans everything is ruined pls forgive me and tell shavi pls pls i love her so much yr i wont survive pls noureen kr de yr kuch ill remember u my whole life</p>
             </CardContent>
           </Card>
         </motion.div>

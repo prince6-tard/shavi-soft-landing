@@ -1,8 +1,9 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import metroImage from '@/assets/metro-interior.png';
 import { Heart } from 'lucide-react';
+import nusrat from '@/assets/nusrat.m4a'
 
 interface IntroSectionProps {
   onComplete: () => void;
@@ -31,6 +32,7 @@ const letterVariant = {
 export const IntroSection = ({ onComplete }: IntroSectionProps) => {
   const [stage, setStage] = useState(0);
   const [showButton, setShowButton] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const texts = [
     "In the dull metro train, I searched desperately for a charger...",
@@ -57,11 +59,46 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
     return () => timers.forEach(clearTimeout);
   }, []);
 
+  useEffect(() => {
+    const tryPlay = async () => {
+      try {
+        if (audioRef.current) {
+          audioRef.current.muted = false;
+          await audioRef.current.play();
+        }
+      } catch (error) {
+        console.log('Autoplay prevented:', error);
+        // Autoplay might be blocked; wait for first user interaction
+      }
+    };
+
+    // Try immediately
+    tryPlay();
+
+    // Fallback on first interaction
+    const onFirstInteract = () => {
+      tryPlay();
+      window.removeEventListener('click', onFirstInteract);
+      window.removeEventListener('touchstart', onFirstInteract);
+      window.removeEventListener('keydown', onFirstInteract);
+    };
+    window.addEventListener('click', onFirstInteract, { once: true });
+    window.addEventListener('touchstart', onFirstInteract, { once: true });
+    window.addEventListener('keydown', onFirstInteract, { once: true });
+
+    return () => {
+      window.removeEventListener('click', onFirstInteract);
+      window.removeEventListener('touchstart', onFirstInteract);
+      window.removeEventListener('keydown', onFirstInteract);
+    };
+  }, []);
+
   // Creates an array of floating heart particles for the background
   const particles = Array.from({ length: 25 }).map((_, i) => {
     const size = Math.random() * 10 + 5;
     const duration = Math.random() * 5 + 5;
     return (
+      
       <motion.div
         key={i}
         className="absolute text-romantic-rose"
@@ -103,6 +140,15 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
       }}
       transition={{ duration: 3, ease: "easeInOut" }}
     >
+      {/* Background audio */}
+      <audio
+        ref={audioRef}
+        src={nusrat}
+        autoPlay
+        loop
+        playsInline
+        preload="auto"
+      />
       <AnimatePresence>
         {stage >= 1 && <div className="absolute inset-0 z-0">{particles}</div>}
       </AnimatePresence>
@@ -201,6 +247,8 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
           </motion.div>
         )}
       </div>
+     
     </motion.div>
+   
   );
 };

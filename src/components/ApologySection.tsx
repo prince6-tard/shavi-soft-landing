@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
 import jeffImage from '@/assets/jeff-2.png';
+import forshavi from '@/assets/forshavi.m4a'
 
 export const ApologySection = () => {
   const commitments = [
@@ -42,7 +43,10 @@ export const ApologySection = () => {
                 You deserve better. I'm not asking for a reset—just a chance to show 
                 I've learned and changed. You mean everything to me, and I want to be 
                 the partner you deserve.
+                EK BAR SUNLE 
+              <h2 className='text-red-600 font-bold'>I LOVE YOU</h2>
               </p>
+              <audio src={forshavi} controls className="w-full mt-6"></audio>
             </CardContent>
           </Card>
         </motion.div>
