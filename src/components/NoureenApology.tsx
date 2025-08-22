@@ -104,7 +104,7 @@ export const NoureenApology = () => {
               <div className=''>
               <p className="text-base sm:text-lg md:text-xl font-body leading-relaxed text-foreground hover:text-violet-400">
                  Still what I said was not justified and its not an justification is an apology for u genuinely respect u pls forgive me if u can ur a pretty woman with a prettier heart yea but i will always be jeoulous of fact that u have shavi 24/7.</p>
-                  <p className='mt-3 sm:mt-4 p-3 sm:p-4 bg-rose/20 rounded-md hover:text-red-500 text-sm sm:text-base'>I'M SORRY NOUREEN PLS MAAF KRDE MAINE GUSSE ME KYA KUCH NI BOLA TERI GALTI NI THI MERI THI MERI THI U ARE HER BESTFRIEND KEEP HER HAPPY AND PLS IM SORRY </p>
+                  <p className='mt-3 sm:mt-4 p-3 sm:p-4 bg-rose/20 rounded-md text-red-500 text-sm sm:text-base'>I'M SORRY NOUREEN PLS MAAF KRDE MAINE GUSSE ME KYA KUCH NI BOLA TERI GALTI NI THI MERI THI MERI THI U ARE HER BESTFRIEND KEEP HER HAPPY AND PLS IM SORRY </p>
           </div>
            <div className="border-t border-rose/20 pt-6">
             <h3 className="font-playfair text-xl font-semibold text-ink mb-4">My Commitments to You</h3>
@@ -146,11 +146,11 @@ export const NoureenApology = () => {
           {[{
             src: allahImage,
           title: 'For Noureen --I prayed to Allah ji',
-            caption: 'I visited allah ji noureen pls forgive me allah is all forgiving pls make shavi forgive me'
+            caption: <p className='text-green-400'> 'I visited allah ji noureen pls forgive me allah is all forgiving pls make shavi forgive me'</p>
           },{
             src: ganeshImage,
             title: 'For Shavi — I prayed to Ganesh ji',
-            caption: 'i prayed to ganesh ji remember once u said u will make me a believer i laughed u did it shavi pls forgive me'
+            caption: <p className='text-orange-500'>'i prayed to ganesh ji remember once u said u will make me a believer i laughed u did it shavi pls forgive me'</p>
           }].map((img, i) => (
             <Card key={i} className="overflow-hidden shadow-romantic border-romantic-rose/20 bg-card/90 backdrop-blur-sm">
               <div className="relative w-full bg-black">
