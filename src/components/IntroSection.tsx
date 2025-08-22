@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { Button } from '@/components/ui/button';
 import metroImage from '@/assets/metro-interior.png';
 import { Heart } from 'lucide-react';
@@ -33,6 +33,7 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
   const [stage, setStage] = useState(0);
   const [showButton, setShowButton] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [audioBlocked, setAudioBlocked] = useState(false);
 
   const texts = [
     "In the dull metro train, I searched desperately for a charger...",
@@ -59,25 +60,27 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  useEffect(() => {
-    const tryPlay = async () => {
-      try {
-        if (audioRef.current) {
-          audioRef.current.muted = false;
-          await audioRef.current.play();
-        }
-      } catch (error) {
-        console.log('Autoplay prevented:', error);
-        // Autoplay might be blocked; wait for first user interaction
+  const attemptPlay = useCallback(async () => {
+    try {
+      if (audioRef.current) {
+        audioRef.current.muted = false;
+        audioRef.current.volume = 0.7;
+        await audioRef.current.play();
+        setAudioBlocked(false);
       }
-    };
+    } catch (error) {
+      setAudioBlocked(true);
+      console.log('Autoplay prevented:', error);
+    }
+  }, []);
 
+  useEffect(() => {
     // Try immediately
-    tryPlay();
+    attemptPlay();
 
     // Fallback on first interaction
     const onFirstInteract = () => {
-      tryPlay();
+      attemptPlay();
       window.removeEventListener('click', onFirstInteract);
       window.removeEventListener('touchstart', onFirstInteract);
       window.removeEventListener('keydown', onFirstInteract);
@@ -91,7 +94,7 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
       window.removeEventListener('touchstart', onFirstInteract);
       window.removeEventListener('keydown', onFirstInteract);
     };
-  }, []);
+  }, [attemptPlay]);
 
   // Creates an array of floating heart particles for the background
   const particles = Array.from({ length: 25 }).map((_, i) => {
@@ -149,6 +152,15 @@ export const IntroSection = ({ onComplete }: IntroSectionProps) => {
         playsInline
         preload="auto"
       />
+      {/* Mobile autoplay fallback control */}
+      {audioBlocked && (
+        <button
+          onClick={attemptPlay}
+          className="fixed bottom-4 right-4 z-20 rounded-full bg-black/70 text-white px-4 py-2 shadow-lg backdrop-blur"
+        >
+          Tap for sound
+        </button>
+      )}
       <AnimatePresence>
         {stage >= 1 && <div className="absolute inset-0 z-0">{particles}</div>}
       </AnimatePresence>
