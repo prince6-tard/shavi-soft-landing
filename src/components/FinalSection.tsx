@@ -89,7 +89,9 @@ export const FinalSection = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-heading font-semibold text-romantic-rose mb-4">What If You Forgive Me?</h3>
                 <p className="font-body text-foreground">
-                  We build a beautiful family, filled with laughter, understanding, and the unconditional love we've both learned to cherish. Our home is a sanctuary, a testament to our growth and the unwavering power of our bond.
+                  Shavi and I build a beautiful family , Noureen names our children as a responsible MASI AND BUA, Our family will then be filled with laughter, understanding, and the unconditional love we've both learned to cherish. Our home is a sanctuary, a testament to our growth and the unwavering power of our bond.
+                  Please shavi maaf kr de Noureen im sorry to you too im not that guy i genuinely Love this girl if i lose her my whole life will be Meuseum of her memories.
+                  Shavi i know somewhere u know im madly in love with u dont leave me pls just for once talk to me still cant forget when u said i wanna join ur clg for a year just to spend time with pls dont go U can just spare my life you know.
                 </p>
               </CardContent>
             </Card>
@@ -107,7 +109,8 @@ export const FinalSection = () => {
                 <div>
                   <h3 className="text-2xl font-heading font-semibold text-romantic-rose mb-4">What If You Don't?</h3>
                   <p className="font-body text-foreground">
-                    I'll spend my life carrying the lessons you taught me. One day, I'll adopt a little girl and name her Shavi. I'll tell her the story of a prince who loved a princess so much that even when he lost her, he honored her name forever.
+                     I'll cry till i cant and If i survive. One day, I'll adopt a little girl and name her Shavi. I'll tell her the story of a prince who loved a princess(shavi) so much that even when he lost her, he honored her name forever. Shavi will always be in my life. Even if u dont forgive me u wont be able to take shavi out of me 
+                  I love you so much bro just i was overprotective kid protacting the most precisious thing i had 
                   </p>
                 </div>
                 <div className="flex-grow flex items-end justify-center">
